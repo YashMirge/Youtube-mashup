@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MashUp</title>
+</head>
+<body>
+<h1>YouTube MashUp</h1>
+<iframe id="youtube" width="560" height="315" src="" 
+frameborder="0" allowfullscreen>
+</iframe>
+<br>
+
+
+
+<script>
+
+//?start=54&autoplay=1
+
+//these are sample videos but feel free to add videos in same format otherwise it might not work
+
+var url = ["https://www.youtube.com/embed/v5e4gwDGrNk?start=54&autoplay=1",
+		"https://www.youtube.com/embed/y_AAO7QfsiI?start=10&autoplay=1",
+		"https://www.youtube.com/embed/El3IZFGERbM?start=40&autoplay=1",
+		"https://www.youtube.com/embed/tqg3F-8jBec?start=34&autoplay=1",
+		"https://www.youtube.com/embed/wWiSShEGyHA?start=77&autoplay=1"];
+
+var dur = [1,2,3,1,2]; //this is duration of minute for how long the corredponding video should be played
+
+var i = 1;                    
+document.getElementById('youtube').src=url[i-1];
+
+//function change(link)
+//{
+//document.getElementById('youtube').src=link;
+//}
+
+
+
+function myLoop () {                                      
+   setTimeout(function () {                            
+   document.getElementById('youtube').src=url[i];           
+      i++;                     					
+      if (i <= dur.length) {            	
+         myLoop();             			
+      }                        		
+   }, dur[i-1]*60*1000)
+}
+
+myLoop(); 
+
+
+
+</script>
+</body>
+</html>
